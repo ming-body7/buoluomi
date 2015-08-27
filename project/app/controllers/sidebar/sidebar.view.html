@@ -1,0 +1,14 @@
+<div ng-controller="AccordionDemoCtrl">
+
+  <accordion close-others="oneAtATime">
+    <accordion-group heading="婚纱照" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+      分享
+    </accordion-group>
+
+    <accordion-group heading="设置" is-open="status.isSecondOpen" is-disabled="status.isSecondDisabled">
+      <div>基本信息</div>
+      <div>修改密码</div>
+      <div>修改账号</div>
+    </accordion-group>
+  </accordion>
+</div>

@@ -1,0 +1,22 @@
+<div ng-controller="contentController">
+	<div ng-binding>{{testdata}}</div>
+	<table class="table">
+	  <thead>
+	    <button>set hot</button>
+	    <button>new</button>
+	  </thead>
+	  <tbody>
+	    <tr ng-repeat="x in contents">
+	      <td>{{x.imgUrl}}</td>
+	      <td>{{x.text1}}</td>
+	      <td>{{x.text2}}</td>
+	      <td>QR code</td>
+	      <td>浏览:{{x.scan}}</td>
+	      <td>分享:{{x.shareNumber}}</td>
+	      <td>删除</td>
+	    </tr> 
+	      
+	    </tr>
+	  </tbody>
+	</table>
+</div>
