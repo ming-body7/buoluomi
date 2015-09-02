@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh">
+<meta charset="utf-8"> 
+<div id="outside-container">
+	<div>婚纱照分享 》你是我一生的守候</div>
+	<div id="preview-container">
+		
+		<div id="picture">
+			<img src="images/u27.png" alt="hehe"/>
+			<button>更改封面</button>
+		</div>
+		<div id="title">
+			<p>you are my one life hold</p>
+		</div>
+		<div>
+			<p>Fendou Zhao and Meili Li, fuck up</p>
+		</div>
+	</div>
+
+	<div id="settings-container">
+		<div id="brand-tail">
+			<p>尾页品牌</p>
+			<div id="switch"></div>
+			<switch id="enabled" name="enabled" ng-model="enabled" class="green"></switch>
+			<p>作品最后一页展示商家品牌</p>
+		</div>
+		<div id="business-mainpage">
+			<p>商家主页</p>
+			<div id="switch"></div>
+			<switch id="enabled" name="enabled" ng-model="enabled" class="green"></switch>
+			<p>作品展示在商家主页上</p>
+		</div>
+		<div id="backgroud music">
+			<p>music</p>
+			<p>love.mp3</p>
+			<div><button>更改</button></div>
+			
+		</div>
+		<div id="page-settings">
+			<p>页面切换</p>
+			<select>
+				<option>上下切换</option>
+				<option>折叠切换</option>
+				<option>立体切换</option>
+			</select>
+		</div>
+		<div id="image-upload" ng-controller="createController" ng-class="{ uploading: interface.isUploading() }">
+			<h1><a target="_blank" href="https://github.com/Wildhoney/ngDroplet">ngDroplet</a></h1>
+
+            <ul class="statistics">
+                <li><label>Valid:</label> {{interface.getFiles(interface.FILE_TYPES.VALID).length}}</li>
+                <li><label>Invalid:</label> {{interface.getFiles(interface.FILE_TYPES.INVALID).length}}</li>
+                <li><label>Uploaded:</label> {{interface.getFiles(interface.FILE_TYPES.UPLOADED).length}}</li>
+                <li><label>Deleted:</label> {{interface.getFiles(interface.FILE_TYPES.DELETED).length}}</li>
+                <li><label>Total:</label> {{interface.getFiles().length}}</li>
+            </ul>
+
+            <section class="toolbar">
+
+                <input type="button" class="button upload-files" value="Upload Files"
+                       ng-click="interface.uploadFiles()"
+                       ng-hide="interface.isUploading()"
+                       ng-class="{ clickable: interface.isReady() }" />
+
+                <input type="button" class="button upload-files" value="Uploading..." ng-show="interface.isUploading()" />
+
+                <div class="add-files">
+                    <input type="button" class="button add-files" value="Add Files..." />
+                    <droplet-upload-multiple ng-model="interface"></droplet-upload-multiple>
+                </div>
+
+                <comment class="progress" ng-class="{ visible: interface.isUploading() }">
+                    Uploaded: {{interface.progress.percent}}%
+                </comment>
+
+            </section>
+
+            <droplet ng-model="interface">
+
+                <div class="loading" ng-class="{ visible: interface.isUploading() }">
+                    <svg viewBox="0 0 400 400">
+                        <path class="loading-path"  ng-model="interface.progress.percent"
+                              d="M 0,1 L 398,1 L 398,234 L 1,234 L 0,1"
+                              stroke="#D3B2D1" stroke-width="1" fill-opacity="0"
+                              style="stroke-dasharray: 392px, 392px;stroke-dashoffset: 392px;"></path>
+                    </svg>
+                </div>
+
+                <comment></comment>
+
+                <section class="message success" ng-class="{ visible: success }" ng-click="success = false">
+                    Successfully uploaded {{uploadCount}} files.
+                </section>
+
+                <section class="message error" ng-class="{ visible: error }" ng-click="error = false">
+                    Failed to upload any of the files.
+                </section>
+
+                <ul class="files">
+
+                    <li ng-repeat="model in interface.getFiles(interface.FILE_TYPES.VALID)">
+                        <droplet-preview ng-model="model"></droplet-preview>
+                        <div class="delete" ng-click="model.deleteFile()">&times;</div>
+                        <div class="size">{{model.file.size / 1024 / 1024 | number: 1}}MB</div>
+                    </li>
+
+                </ul>
+
+            </droplet>
+			
+		</div>
+	</div>
+</div>
+</html>

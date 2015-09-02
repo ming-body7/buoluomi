@@ -2,7 +2,7 @@
 
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
-  'ngRoute','ui.bootstrap','ngAnimate'
+  'ngRoute','ui.bootstrap','ngAnimate','uiSwitch','ngDroplet'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider
@@ -26,8 +26,8 @@ config(['$routeProvider', function($routeProvider) {
      //controller:'mainController',
      //controllerAs:'vm'
     })
-    .when('/test',{
-      templateUrl:'test.html'
+    .when('/create',{
+      templateUrl:'controllers/create/create.view.html'
     })
     .otherwise({
         redirectTo: '/login'
