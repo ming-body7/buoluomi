@@ -3,7 +3,9 @@
 	<table class="table">
 	  <thead>
 	    <button>set hot</button>
-	    <button>new</button>
+	    <a ui-sref="main.create">
+    		<button class="btn btn-danger navbar-btn" >Create</button>
+		</a>
 	  </thead>
 	  <tbody>
 	    <tr ng-repeat="x in contents">

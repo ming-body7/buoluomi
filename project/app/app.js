@@ -2,35 +2,85 @@
 
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
-  'ngRoute','ui.bootstrap','ngAnimate','uiSwitch','ngDroplet'
-]).
-config(['$routeProvider', function($routeProvider) {
-  $routeProvider
-    .when('/login',{
-      templateUrl:'controllers/login/login.view.html',
-      controller:'loginController',
-      controllerAs:'vm'
+  'ui.router','ui.bootstrap','ngAnimate','uiSwitch','ngDroplet'
+])
+.config(function($stateProvider, $urlRouterProvider) {
+  //
+  // For any unmatched url, redirect to /state1
+  $urlRouterProvider.otherwise("/index");
+  //
+  // Now set up the states
+  $stateProvider
+    .state('index', {
+      url: "/index",
+      views:{
+        'main':{
+          templateUrl: "controllers/index/index.view.html",
+          controller:""
+        }
+      }
+      
     })
-    .when('/register',{
-      templateUrl:'controllers/register/register.view.html',
-      controller:'registerController',
-      controllerAs:'vm'
+    .state('login', {
+      url: "/login",
+      views:{
+        'main':{
+          templateUrl: "controllers/login/login.view.html",
+          controller:""
+        }
+      }
+      
     })
-    .when('/',{
-  	 templateUrl:'controllers/index/index.view.html',
-  	 controller:'indexController',
-  	 controllerAs:'vm'
-  	})
-    .when('/main',{
-     templateUrl:'controllers/main/main.view.html'//,
-     //controller:'mainController',
-     //controllerAs:'vm'
+    .state('register', {
+      url: "/register",
+      views:{
+        'main':{
+          templateUrl: "controllers/register/register.view.html",
+          controller:""
+        }
+      }
+      
     })
-    .when('/create',{
-      templateUrl:'controllers/create/create.view.html'
+    .state('main', {
+      url: "/main",
+      views:{
+        'main':{
+          templateUrl: "controllers/main/main.view.html",
+          controller:""
+        },
+        'content@main':{
+          templateUrl: "controllers/content/content.view.html",
+          controller:""
+        }
+      }
+      
     })
-    .otherwise({
-        redirectTo: '/login'
+    .state('main.view', {
+      url: "/view",
+      views:{
+        'main':{
+          templateUrl: "controllers/main/main.view.html",
+          controller:""
+        },
+        'content@main':{
+          templateUrl: "",
+          controller:""
+        }
+      }
+      
+    })
+    .state('main.create', {
+      url: "/create",
+      views:{
+        'main':{
+          templateUrl: "controllers/main/main.view.html",
+          controller:""
+        },
+        'content@main':{
+          templateUrl: "controllers/create/create.view.html",
+          controller:""
+        }
+      }
+      
     });
-    //$locationProvider.html5Mode(true);
-}]);
+});

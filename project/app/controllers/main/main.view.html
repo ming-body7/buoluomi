@@ -1,6 +1,9 @@
 <div>
 	<div ng-include="'controllers/sidebar/sidebar.view.html'"></div>
-	<div ng-include="'controllers/content/content.view.html'"></div>
+	<!--<div ng-include="'controllers/content/content.view.html'"></div> -->
+	<div>
+		<div ui-view="content"></div>
+	</div>
 	
 	
 </div>
