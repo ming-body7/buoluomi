@@ -69,7 +69,7 @@ angular.module('myApp', [
       }
       
     })
-    .state('main.create', {
+    .state('main.create_modified', {
       url: "/create",
       views:{
         'main':{
