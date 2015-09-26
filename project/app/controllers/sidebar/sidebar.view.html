@@ -2,13 +2,21 @@
 
   <accordion close-others="oneAtATime">
     <accordion-group heading="婚纱照" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
-      分享
+      <a ui-sref="main">
+        <button class="btn btn-danger navbar-btn">分享</button>
+      </a>
     </accordion-group>
 
     <accordion-group heading="设置" is-open="status.isSecondOpen" is-disabled="status.isSecondDisabled">
-      <div>基本信息</div>
-      <div>修改密码</div>
-      <div>修改账号</div>
+      <a ui-sref="main.information">
+        <button class="btn btn-danger navbar-btn">基本信息</button>
+      </a>
+      <a ui-sref="main.password">
+        <button class="btn btn-danger navbar-btn">修改密码</button>
+      </a>
+      <a ui-sref="main.account">
+        <button class="btn btn-danger navbar-btn">修改账号</button>
+      </a>
     </accordion-group>
   </accordion>
 </div>

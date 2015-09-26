@@ -26,20 +26,34 @@
   <script src="bower_components/angular-animate/angular-animate.js"></script>
   <script src="bower_components/angular-ui-switch/angular-ui-switch.min.js"></script>
   <script src="bower_components/ng-droplet/components/ngDroplet.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+
+
   <script src="app.js"></script>
+  <script src="services/authentication.service.js"></script>
+  <script src="services/flash.service.js"></script>
+
+  <!-- Real user service that uses an api -->
+  <!-- <script src="app-services/user.service.js"></script> -->
+
+  <!-- Fake user service for demo that uses local storage -->
+  <script src="services/user.service.local-storage.js"></script>
+
+
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
 
   <script src="controllers/header/header.controller.js"></script> 
-  <script src="controllers/index/index.controller.js"></script> 
+  <script src="controllers/index/index.controller.js"></script>
   <script src="controllers/login/login.controller.js"></script> 
   <script src="controllers/register/register.controller.js"></script>
   <script src="controllers/content/content.controller.js"></script>
   <script src="controllers/sidebar/sidebar.controller.js"></script>
-  <script src="controllers/create/create.controller.js"></script>
+  <script src="controllers/create_modified/create.controller.js"></script>
 
   <script src="controllers/main/main.controller.js"></script>
+  <script src="controllers/hot/hot.controller.js"></script>
   
 
 <body ng-app="myApp">

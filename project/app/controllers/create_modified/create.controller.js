@@ -30,10 +30,10 @@
         // Listen for when the interface has been configured.
         $scope.$on('$dropletReady', function whenDropletReady() {
 
-            $scope.interface.allowedExtensions(['png', 'jpg', 'bmp', 'gif', 'svg', 'torrent']);
-            $scope.interface.setRequestUrl('upload.html');
-            $scope.interface.defineHTTPSuccess([/2.{2}/]);
-            $scope.interface.useArray(false);
+            $scope.interface.allowedExtensions = ['png', 'jpg', 'bmp', 'gif', 'svg', 'torrent'];
+            $scope.interface.setRequestUrl = 'upload.html';
+            $scope.interface.defineHTTPSuccess =  [/2.{2}/];
+            $scope.interface.useArray = false;
 
         });
 
